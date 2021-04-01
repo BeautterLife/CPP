@@ -1,5 +1,6 @@
 #include <iostream>
-#include <cmath>
+#include <cstdlib> // int abs(int num) 은 cmath가 아닌 여기에 있음
+//#include <cmath>
 using namespace std;
 
 int main(void) {
