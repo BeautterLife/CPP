@@ -10,19 +10,18 @@ int main(void) {
     s.insert(n);
     
     cout<< isHappy(n,s);
-    
     return 0;
 }
 
 string isHappy(int num, set<int>& s){
     if (num==1) return "HAPPY";
     int sq_sum = 0;
+    
     while(num!=0){
         sq_sum+=(num%10)*(num%10);
         num/=10;
     }
-
-
+    // 반복되는 패턴(수) 발견시 리턴
     if (s.find(sq_sum)!=s.end()) return "UNHAPPY";
     s.insert(sq_sum);
     return isHappy(sq_sum,s);
