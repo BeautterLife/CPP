@@ -16,6 +16,7 @@ int main(void) {
     vector<vector<bool>> visited(n, vector<bool> (m,false));
     vector<int> room_num;
     
+    //입력이 n줄의 string이라 1d string vector에 입력받아야 함
     for(int i=0;i<n;i++) cin >> v[i];
 
     for(int i=0;i<n;i++){
@@ -25,9 +26,8 @@ int main(void) {
     }
     
     bfs(visited, room_num, n,m);
-
     sort(room_num.begin(),room_num.end());
-    cout<<room_num.size()<<endl;
+    
     for(auto i = room_num.rbegin();i!=room_num.rend();i++) cout<<*i<<" ";
     
     return 0;
@@ -65,6 +65,7 @@ void bfs(vector<vector<bool>>& visited, vector<int>& room_num, int n, int m){
     
 }
 
+//범위 체크
 bool isInRange(int i, int j, int n, int m){
     if(i==-1 || i==n || j==-1 || j==m) return false;
     return true;
