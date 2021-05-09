@@ -138,11 +138,15 @@ myMatrix& myMatrix::operator*=(int value){
 }
 
 // Assignment operators
+// 주의!!
 myMatrix& myMatrix::operator=(const myMatrix& mat){
 	if(&mat == this)
 		return *this;
 
   // fill in
+    // default 생성자로 생성한 객체에 대입할경우, 
+    // pData 메모리 
+    //rhs의 크기만큼 메모리 재할당 받고 깊은복사 해야됨.
     deleteMemory();
     rows = mat.rows;
     cols = mat.cols;
