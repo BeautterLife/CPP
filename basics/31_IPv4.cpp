@@ -3,7 +3,6 @@
 using namespace std;
 unsigned int Ipv4ToString(string s);
 string uIntToIpv4(unsigned int n);
-
 int main(void) {
     int k;
     cin >>k;
@@ -34,9 +33,10 @@ unsigned int Ipv4ToString(string s){
 string uIntToIpv4(unsigned int n){
     string a;
     for(int i=3;i>-1;i--){
-        a+= to_string(n/(2<<(8*i-1)));
+        // 상위 바이트부터 추출하고 나눠주면 하위 바이트만 남음
+        a+= to_string(n/(1<<(8*i)));  // 나눈 몫이 추출한 주소
         if (i>0) a+='.';
-        n%=(2<<(8*i-1));
+        n%=(1<<(8*i));  // 나눈 나머지가 다음에 추출할 대상
     }
     return a;
 
